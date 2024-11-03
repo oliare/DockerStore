@@ -85,6 +85,7 @@ namespace ApiStore.Controllers
 
             if (model.NewImages != null)
             {
+                int maxPriority = product.ProductImages.Max(img => img.Priority);
                 foreach (var img in model.NewImages)
                 {
                     if (img != null)
@@ -94,6 +95,7 @@ namespace ApiStore.Controllers
                         {
                             Image = imagePath,
                             ProductId = product.Id,
+                            Priority = ++maxPriority
                         });
                     }
                 }

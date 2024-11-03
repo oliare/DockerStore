@@ -29,7 +29,9 @@ public class AppMapProfile : Profile
         // Products
         CreateMap<ProductEntity, ProductItemViewModel>()
            .ForMember(x => x.Images, opt => opt.MapFrom(x => x.ProductImages
-           .Select(p => p.Image).ToArray()));
+           .Select(p => p.Image).ToArray()))
+           .ForMember(x => x.CategoryName, opt => opt.MapFrom(x => x.Category.Name));
+
 
         CreateMap<ProductCreateViewModel, ProductEntity>();
         CreateMap<ProductEditViewModel, ProductEntity>()

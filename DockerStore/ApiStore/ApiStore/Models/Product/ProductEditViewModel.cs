@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace ApiStore.Models.Product;
+﻿namespace ApiStore.Models.Product;
 
 public class ProductEditViewModel
 {
