@@ -30,17 +30,15 @@ const ProductEditPage = () => {
             .then(resp => {
                 console.log("API Response: ", resp.data);
                 const { data } = resp;
-                form.setFieldsValue(resp.data);
+                form.setFieldsValue({ ...resp.data, categoryId: resp.data.categoryName });
 
-                if (data.previousImages) {
-                    const previousFiles = data.previousImages.map((image) => ({
-                        uid: image.id.toString(),
-                        name: image.image,
-                        status: 'done',
-                        url: `${BASE_URL}/images/1200_${image.image}`,
-                    } as UploadFile));
-                    setFiles(previousFiles);
-                }
+                const newFileList: UploadFile[] = data.images.map(image => ({
+                    uid: image,
+                    name: image,
+                    status: "done",
+                    url: `${BASE_URL}/images/1200_${image}`,
+                }));
+                setFiles(newFileList);
             })
             .catch(error => {
                 console.error("Error fetching product details:", error);

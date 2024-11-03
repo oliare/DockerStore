@@ -19,7 +19,8 @@ export interface IProductEdit {
     name: string;
     price: number;
     categoryId: number;
-    previousImages: IUploadedFile[];
+    categoryName: number;
+    images: string[];
     newImages?: File[];
     imagesIds?: number[];
 }
