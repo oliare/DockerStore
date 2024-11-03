@@ -30,7 +30,7 @@ const ProductEditPage = () => {
             .then(resp => {
                 console.log("API Response: ", resp.data);
                 const { data } = resp;
-                form.setFieldsValue({ ...resp.data, categoryId: resp.data.categoryName });
+                form.setFieldsValue({ ...resp.data });
 
                 const newFileList: UploadFile[] = data.images.map(image => ({
                     uid: image,

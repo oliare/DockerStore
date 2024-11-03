@@ -19,7 +19,6 @@ export interface IProductEdit {
     name: string;
     price: number;
     categoryId: number;
-    categoryName: number;
     images: string[];
     newImages?: File[];
     imagesIds?: number[];
